@@ -8,6 +8,9 @@ Feature: Insert ChemJax notation using the TinyMCE dialog
     Given the following "courses" exist:
       | fullname | shortname |
       | ChemJax  | CJ102     |
+    # contentformat 1 (FORMAT_HTML) is required: the page generator's default
+    # (FORMAT_MOODLE) prevents TinyMCE from attaching to "Page content" at
+    # all, so the dialog steps below would find no editor. Do not remove it.
     And the following "activities" exist:
       | activity | course | idnumber | name      | content | contentformat |
       | page     | CJ102  | p1       | Chem page | x       | 1             |
@@ -28,12 +31,12 @@ Feature: Insert ChemJax notation using the TinyMCE dialog
     # "filter-chemjax-frame" iframe almost immediately - well before MathJax
     # itself (loaded from the renderer iframe, cross-origin, CDN-backed) has
     # actually typeset anything. We only assert the notation made it into the
-    # page (via the still-present fallback span) or that the loader has
-    # already replaced it with a renderer iframe; we deliberately do not wait
-    # for, or assert on, a completed render - that is filter_chemjax's own
-    # render.feature's job, and depending on it here would make this
-    # scenario flaky against cold-cache CDN fetches.
-    Then I should see "\cjx" in the "region-main" "region"
+    # page via the filter's placeholder span in the DOM; we deliberately do
+    # not wait for, or assert on, a completed render - that is filter_chemjax's
+    # own render.feature's job. A DOM-presence check (rather than a visibility
+    # check like "I should see") stays stable even if MathJax finishes fast
+    # and the loader hides the fallback span mid-assertion.
+    Then "//span[contains(@class, 'filter-chemjax-formula')]" "xpath_element" should exist
 
   Scenario: The help modal opens from the dialog
     Given I log in as "admin"
