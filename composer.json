@@ -1,0 +1,10 @@
+{
+    "name": "adamjenkins/moodle-tiny_chemjax",
+    "description": "A TinyMCE editor plugin for Moodle that provides a dialog for inserting ChemJax chemistry notation with live preview support",
+    "type": "moodle-tiny",
+    "require": {
+        "moodle/moodle": ">=5.0 <5.3",
+        "moodle/composer-installer": "^1.0"
+    },
+    "license": "GPL-3.0-or-later"
+}
