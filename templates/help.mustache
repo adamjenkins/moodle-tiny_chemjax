@@ -1,0 +1,60 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template tiny_chemjax/help
+
+    ChemJax notation cheat-sheet modal. Section strings are resolved in
+    tiny_chemjax/helpmodal and passed pre-localised; body is trusted HTML
+    from this plugin's own lang strings.
+
+    Classes required for JS:
+    * none
+
+    Data attributes required for JS:
+    * none
+
+    Context variables required for this template:
+    * sections - array of {title, example, body, imgurl}. imgurl is a fully-resolved image
+      URL (or empty string) - resolved in JS via core/url.imageUrl rather than Moodle's pix
+      mustache helper, because that helper renders an img tag with class "icon", which
+      Boost's CSS constrains to icon-scale (~16-20px), too small for these illustrative
+      diagrams.
+
+    Example context (json):
+    {
+        "sections": [
+            {"title": "A simple example", "example": "\\cjx{CH_3 -CH_3}", "body": "",
+             "imgurl": "https://example.com/pluginfile.php/1/tiny_chemjax/fig1.png"}
+        ]
+    }
+}}
+{{< core/modal }}
+    {{$title}}{{#str}} helptitle, tiny_chemjax {{/str}}{{/title}}
+    {{$body}}
+        <div class="tiny_chemjax_help">
+            <p>{{#str}} help_intro, tiny_chemjax {{/str}}</p>
+            {{#sections}}
+            <section class="mb-4">
+                <h5>{{title}}</h5>
+                <pre class="p-2 bg-light border rounded"><code>{{example}}</code></pre>
+                {{#body}}<div>{{{body}}}</div>{{/body}}
+                {{#imgurl}}<img src="{{imgurl}}" class="tiny_chemjax_help_img img-fluid" alt="{{title}}">{{/imgurl}}
+            </section>
+            {{/sections}}
+        </div>
+    {{/body}}
+{{/ core/modal }}
