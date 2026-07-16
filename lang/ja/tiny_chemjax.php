@@ -24,13 +24,13 @@
 
 $string['chemjax:use'] = 'ChemJax 数式ダイアログの使用';
 $string['dialogtitle'] = 'ChemJax 構造式';
-$string['help_intro'] = '化学構造式フィルタプラグイン';
+$string['help_intro'] = 'ChemJax は、\cjx{...} コマンド内に書かれた chemfig 風の記法から化学構造式を描画します。';
 $string['help_sec01_example'] = '\cjx{CH_3 -CH (#[2]CH_3) -CH_2 -C (=[:60]O) -[:-60]O -H}';
 $string['help_sec01_title'] = '簡単な記述例';
-$string['help_sec02_body'] = '<ul><li>必要なオプションまで指定すれば、その先は省略可能です。例えば -[4,2] は角度と長さの倍率のみを指定したことになります。途中のオプションを省略する場合は -[,,1,2] のように空のコンマを入れます。</li><li>結合の種類：単結合「-」、二重結合「=」、三重結合「#」。</li><li>改行：\\\\（例：\cjx{CH3 -CH} \\\\ \cjx{-CH_2 -OH}）。</li></ul>';
+$string['help_sec02_body'] = '<ul><li>必要なオプションまで指定すれば，その先は省略可能です。例えば，-[4,2] とすれば，角度と長さの倍率までを指定したことになります。途中のオプションを省略したい場合は，-[,,1,2] のように空のコンマを入れます。</li><li>結合の種類：単結合：- / 二重結合：= / 三重結合：#</li><li>改行：\\\\（例：\cjx{CH3 -CH} \\\\ \cjx{-CH_2 -C (=[:60]O) -[:-60]O -H}）</li></ul>';
 $string['help_sec02_example'] = '-[angle, length ratio, from-atom number, to-atom number]';
 $string['help_sec02_title'] = '結合のオプション';
-$string['help_sec03_body'] = '<ul><li>45°の倍数による指定：[2] は90°を表す。</li><li>絶対角度による指定：[:90]。</li><li>相対角度による指定：[::30]。</li></ul>';
+$string['help_sec03_body'] = '<ul><li>45° の倍数による指定：90° であれば [2]</li><li>絶対角度による指定：90°であれば [:90]</li><li>相対角度による指定：30°であれば [::30]</li></ul>';
 $string['help_sec03_example'] = '-[2]  -[:90]  -[::30]';
 $string['help_sec03_title'] = '第1オプション：角度の指定';
 $string['help_sec04_example'] = '\cjx{C -C -[::20]C -[::20]C -[::20]C}';
