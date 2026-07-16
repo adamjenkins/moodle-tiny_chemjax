@@ -29,7 +29,8 @@ Feature: Insert ChemJax notation using the TinyMCE dialog
     # passed through the filter on display. The filter wraps the notation in
     # a fallback span and loader.js (its AMD module) swaps that span for a
     # "filter-chemjax-frame" iframe almost immediately - well before MathJax
-    # itself (loaded from the renderer iframe, cross-origin, CDN-backed) has
+    # itself (loaded from the renderer iframe, same-origin - only the MathJax
+    # library it loads comes from a CDN) has
     # actually typeset anything. We only assert the notation made it into the
     # page via the filter's placeholder span in the DOM; we deliberately do
     # not wait for, or assert on, a completed render - that is filter_chemjax's

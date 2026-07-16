@@ -23,6 +23,7 @@
 
 import ChemjaxModal from 'tiny_chemjax/modal';
 import ModalEvents from 'core/modal_events';
+import Notification from 'core/notification';
 import {getBondlen, getMathjaxUrl, getRendererUrl} from 'tiny_chemjax/options';
 import {showHelp} from 'tiny_chemjax/helpmodal';
 
@@ -100,7 +101,7 @@ export const handleAction = async(editor) => {
             modal.destroy();
         } else if (e.target.closest('[data-action="help"]')) {
             e.preventDefault();
-            showHelp();
+            showHelp().catch(Notification.exception);
         }
     });
 };

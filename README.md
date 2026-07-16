@@ -15,9 +15,9 @@ A TinyMCE editor plugin for Moodle that provides a dialog for inserting ChemJax 
 
 ## Installation
 
-1. Place the plugin directory in `/lib/editor/tiny/plugins/chemjax` on your Moodle installation
-2. Navigate to Site Administration > Plugins > Plugin Overview
-3. The plugin should appear in the list for installation
+1. Place the plugin directory in `lib/editor/tiny/plugins/chemjax` of your Moodle installation (under the `public/` docroot on Moodle 5.x).
+2. Visit Site administration > Notifications to complete the upgrade.
+3. Navigate to Site Administration > Plugins > Plugin Overview to confirm ChemJax appears as installed.
 
 ## Usage
 
